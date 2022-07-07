@@ -10,10 +10,10 @@
 </div>
     <div class="row">
 
-    {% if articles %}
+    {% if products %}
         {% for product in products %}
             <div class="col-sm-6 col-md-3">
-                <h1>{{product.product_name.url}}</h1>
+                <h1>{{product.product_name}}</h1>
             </div>
         {% endfor %}
     {% endif %}

@@ -3,7 +3,8 @@ from shop.models import Product
 
 # Create your views here.
 def home(request):
-    return render(request,'index.html')
+    products = Product.objects.all()
+    return render(request,'index.html', {'products':products})
 
 def search_results(request):
     if 'product' in request.GET and request.GET['product']:

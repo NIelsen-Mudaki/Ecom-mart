@@ -1,26 +1,52 @@
-<nav class="navbar navbar-inverse">
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
 
-    <div class="navbar-header">
-        <a class="navbar-brand" href="{% url 'home'%}">E-Com Mart</a>
-    </div>
-
-    <!-- Adding a search form  -->
-    <div class="col-sm-4 col-md-4 navbar-right">
-
-        <form class="navbar-form" role="search" action="{% url 'search_results' %}">
-
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Products" name="product">
-            <div class="input-group-btn">
-            <button class="btn" type="submit">
-                <i class="bi bi-search"></i>
-            </button>
-            </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'home'%}">
+                <img src="" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                Mart
+            </a>
         </div>
 
-        </form>
-    </div>
-    <!-- search form end -->
+        <div class="navbar-toggler d-flex" id="navbarNavDropdown">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    My Account
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink ">
+                        <li><a class="dropdown-item" href="#">My Account</a></li>
+                        <li><a class="dropdown-item" href="#">Orders</a></li>
+                        <li><a class="dropdown-item" href="#">Saved items</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Adding a search form  -->
+        <div class="col-sm-4 col-md-4 navbar-right">
+
+            <form class="navbar-form d-flex" role="search" action="{% url 'search_results' %}">
+
+                <div class="input-group">
+                    <input type="search" class="form-control" placeholder="Search Products" name="product">
+                    <div class=" input-group-btn">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <!-- search form end -->
     </div>
 </nav>
