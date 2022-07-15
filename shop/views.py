@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from shop.models import Product
+from shop.models import Category, Product
 
 # Create your views here.
 def home(request):
@@ -17,3 +17,7 @@ def search_results(request):
     else:
         message = 'You have not searched for any product'
         return render(request, 'search.html', {'message':message})
+
+def categories(request):
+    categories = Category.objects.all()
+    return render(request, 'navbar.html',{'categories':categories})

@@ -15,7 +15,7 @@ class Category(models.Model):
 class Product(models.Model):
     product_name = models.CharField(max_length=255)
     brand = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=6,decimal_places=2)
+    price = models.DecimalField(max_digits=8,decimal_places=2)
     description = models.CharField(max_length=255)
     image = models.ImageField(upload_to='uploads/', null=True)
     category = models.ForeignKey(Category,on_delete=models.CASCADE, default=1, null=True )
@@ -82,6 +82,9 @@ class Orders(models.Model):
     address = models.CharField(max_length=255)
     date = models.DateField(default=datetime.datetime.today)
     status = models.BooleanField(default=False)
+
+    class Meta:
+        db_table = 'orders'
 
     def placeOrder(self):
         self.save()

@@ -1,10 +1,10 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark" id="nav-bar" >
+    <div class="container container-fluid">
 
         <div class="navbar-header">
             <a class="navbar-brand" href="{% url 'home'%}">
-                <img src="" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                <img src="/media/uploads/logo-removebg-preview.png" alt="" width="50" height="44" class="d-inline-block align-text-top">
                 Mart
             </a>
         </div>
@@ -12,22 +12,27 @@
         <div class="navbar-toggler d-flex" id="navbarNavDropdown">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'home'%}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Features</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarDropdown">Categories</a>
+                    {% for category in categories %}
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item mb-2" href="#">{{category.name}}</a></li>
+                    </ul>
+                    {% endfor %}
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     My Account
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink ">
-                        <li><a class="dropdown-item" href="#">My Account</a></li>
-                        <li><a class="dropdown-item" href="#">Orders</a></li>
-                        <li><a class="dropdown-item" href="#">Saved items</a></li>
+                        <li><a class="dropdown-item mt-2" href="#">Profile</a></li>
+                        <li><a class="dropdown-item mt-2" href="#">Orders</a></li>
+                        <li><a class="dropdown-item mt-2 mb-2" href="#">Saved items</a></li>
                     </ul>
                 </li>
             </ul>
@@ -40,8 +45,8 @@
 
                 <div class="input-group">
                     <input type="search" class="form-control" placeholder="Search Products" name="product">
-                    <div class=" input-group-btn">
-                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                    <div class="input-group-btn">
+                        <button class="btn" type="submit">Search</button>
                     </div>
                 </div>
 
